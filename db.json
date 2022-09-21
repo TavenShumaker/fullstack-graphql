@@ -1,1 +1,10 @@
-{}
+{
+  "pet": [
+    {
+      "id": "8437ksdajfd",
+      "type": "DOG",
+      "name": "Moose",
+      "createdAt": "3473q74983823"
+    }
+  ]
+}

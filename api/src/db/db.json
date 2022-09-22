@@ -24,6 +24,13 @@
       "name": "Sully",
       "type": "CAT",
       "user": "jBWMVGjm50l6LGwepDoty"
+    },
+    {
+      "id": "VdLfghpSshq4s5QhDazfp",
+      "createdAt": 1663820706723,
+      "name": "Peter",
+      "type": "DOG",
+      "user": "jBWMVGjm50l6LGwepDoty"
     }
   ]
 }

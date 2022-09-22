@@ -31,6 +31,13 @@
       "name": "Peter",
       "type": "DOG",
       "user": "jBWMVGjm50l6LGwepDoty"
+    },
+    {
+      "id": "D9vgdLUwrZrKoaFjZWKkC",
+      "createdAt": 1663821399752,
+      "name": "Marissa",
+      "type": "DOG",
+      "user": "jBWMVGjm50l6LGwepDoty"
     }
   ]
 }

@@ -5,26 +5,34 @@ import PetsList from '../components/PetsList'
 import NewPetModal from '../components/NewPetModal'
 import Loader from '../components/Loader'
 
+const PETS_FIELDS = gql`
+  fragment PetsFields on Pet {
+    id
+    type
+    name
+    img
+    owner {
+      id
+    }
+  }
+`
+
 const ALL_PETS = gql`
   query AllPets {
     pets {
-      id
-      type
-      name
-      img
+      ...PetsFields
     }
   }
+  ${PETS_FIELDS}
 `
 
 const NEW_PET = gql`
   mutation CreateAPet($newPet: NewPetInput!) {
     addPet(input: $newPet){
-      id
-      name
-      type
-      img
+      ...PetsFields
     }
   }
+  ${PETS_FIELDS}
 `
 
 export default function Pets () {
@@ -69,6 +77,10 @@ export default function Pets () {
           type: input.type,
           name: input.name,
           img: 'https://via.placeholder.com/300',
+          owner: {
+            __typename: 'User',
+            id: '000000'
+          }
         }
       }
     })
@@ -77,13 +89,15 @@ export default function Pets () {
   /**
    * We don't need to show the loader because we opted into optimistic UI
    */
-  // if (loading || newPet.loading) {
-  //   return <Loader />
-  // }
+  if (loading || newPet.loading) {
+    return <Loader />
+  }
 
   if (error || newPet.error) {
     return <p>Error</p>
   }
+
+  data && console.log(data.pets[0]);
   
   if (modal) {
     return <NewPetModal onSubmit={onSubmit} onCancel={() => setModal(false)} />

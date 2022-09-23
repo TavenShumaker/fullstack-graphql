@@ -11,6 +11,7 @@ const PETS_FIELDS = gql`
     type
     name
     img
+    vaccinated
     owner {
       id
     }
@@ -77,6 +78,7 @@ export default function Pets () {
           type: input.type,
           name: input.name,
           img: 'https://via.placeholder.com/300',
+          vaccinated: true,
           owner: {
             __typename: 'User',
             id: '000000'

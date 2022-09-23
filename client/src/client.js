@@ -11,16 +11,16 @@ import gql from 'graphql-tag'
 
 
 const typeDefs = gql`
-  extend type User {
-    age: Int
+  extend type Pet {
+    vaccinated: Boolean!
   }
-`
+`;
 
-const reslovers = {
-  User: {
-    age: () => 35
+const resolvers = {
+  Pet: {
+    vaccinated: () => true
   }
-}
+};
 
 const http = new HttpLink({
   uri: 'http://localhost:4000/'
@@ -49,7 +49,7 @@ const client = new ApolloClient({
   cache,
   link,
   typeDefs,
-  reslovers
+  resolvers
 });
 
 export default client;
